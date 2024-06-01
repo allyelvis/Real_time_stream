@@ -1,0 +1,12 @@
+# Build the project
+npm install
+
+# Copy files to the server
+scp -r * dcqacj@aenzbi.bi:/path/to/deploy/pos
+
+# SSH into the server
+ssh user@aenzbi.bi << 'EOF'
+cd /path/to/deploy/pos
+npm install
+pm2 restart all  # Assuming you are using PM2 to manage the process
+EOF
